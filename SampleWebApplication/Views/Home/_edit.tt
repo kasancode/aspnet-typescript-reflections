@@ -1,0 +1,5 @@
+﻿<#@ include file="../Template/header.ttinclude"#>
+<#
+	var type = typeof(SampleWebApplication.Models.SampleModel);
+#>
+<#@ include file="../Template/editItems.ttinclude"#>

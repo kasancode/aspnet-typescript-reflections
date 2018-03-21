@@ -1,0 +1,23 @@
+﻿<#@ template debug="false" hostspecific="True" language="C#" #>
+<#@ assembly name="$(TargetDir)TypeLite.dll" #>
+<#@ assembly name="$(TargetDir)TypeLite.Net4.dll" #>
+<#@ assembly name="$(TargetDir)$(TargetFileName)" #>
+
+<#@ import namespace="TypeLite" #> 
+<#@ import namespace="TypeLite.Net4" #> 
+<#@output extension=".ts"#>
+
+ <#@include file="Manager.ttinclude"#>
+<# var manager = Manager.Create(Host, GenerationEnvironment); #>
+
+<# var ts = new GlassLake.Controllers.Generator.AjaxMethodGenerator(
+	typeof(GlassLake.Controllers.SettingsController));
+#>
+
+<#=ts.Generate(new [,]
+{
+	{"NaN","null"},
+	{"\"/Date(", "new Date("},
+	{")/\"", ")"}
+}
+)#>

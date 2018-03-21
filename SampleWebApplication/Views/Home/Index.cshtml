@@ -1,0 +1,22 @@
+﻿@model List<SampleWebApplication.Models.SampleModel>
+@using SampleWebApplication.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/ajaxMethod.js"></script>
+    <script src="~/Scripts/index.js"></script>
+    <script>
+        init("list", @Html.Raw(Json.Encode(Model)));
+    </script>
+}
+
+<div class="row container">
+    <button class="btn btn-default" data-toggle="modal" data-target="#SampleModel-dialog"> Add Item </button>
+    <table id="list" class="table table-bordered"></table>
+
+    @{Html.RenderPartial("_edit", new SampleModel()); }
+
+</div>
