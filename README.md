@@ -6,7 +6,7 @@ This library generate Typescript definitions and methods to asscess ASP.net MVC 
 
 Attach ReturnObjectTypeAttribute at Controller Method
 
-```
+```C#
 public class HomeController : Controller
 {
 	[ReturnObjectType(typeof(List<SampleModel>))]
